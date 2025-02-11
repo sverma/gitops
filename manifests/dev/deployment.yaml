@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermanagement
+  labels:
+    app: usermanagement
+    environment: dev
+spec:
+  replicas: 1  # Lower replica count for dev
+  selector:
+    matchLabels:
+      app: usermanagement
+  template:
+    metadata:
+      labels:
+        app: usermanagement
+        environment: dev
+    spec:
+      containers:
+      - name: usermanagement
+        # The image tag here is updated automatically by the CI/CD pipeline.
+        image: 188557556629.dkr.ecr.us-west-2.amazonaws.com/usermanagement:latest
+        ports:
+        - containerPort: 5000
