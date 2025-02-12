@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: usermanagement
+  name: ingress-usermanagement
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: stage-ingress
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+        - path: /usermanagement
+          pathType: Prefix
+          backend:
+            service:
+              name: usermanagement
+              port:
+                number: 80
