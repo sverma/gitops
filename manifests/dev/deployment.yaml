@@ -16,6 +16,8 @@ spec:
         app: usermanagement
         environment: dev
     spec:
+      imagePullSecrets:
+      - name: my-ecr-secret
       containers:
       - name: usermanagement
         # The image tag here is updated automatically by the CI/CD pipeline.
