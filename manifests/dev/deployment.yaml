@@ -21,6 +21,6 @@ spec:
       containers:
       - name: usermanagement
         # The image tag here is updated automatically by the CI/CD pipeline.
-        image: 188557556629.dkr.ecr.us-west-2.amazonaws.com/usermanagement:22fc88b209f3309061aa1a18b53bc1e51e453314
+        image: 188557556629.dkr.ecr.us-west-2.amazonaws.com/usermanagement:c21a9cf18d306ccbe3a25c3126604b3c2784cb29
         ports:
         - containerPort: 5000
