@@ -4,7 +4,7 @@ metadata:
   name: usermanagement
   labels:
     app: usermanagement
-    environment: dev
+    environment: stage
 spec:
   replicas: 1  # Lower replica count for dev
   selector:
@@ -14,13 +14,13 @@ spec:
     metadata:
       labels:
         app: usermanagement
-        environment: dev
+        environment: stage
     spec:
       imagePullSecrets:
       - name: my-ecr-secret
       containers:
       - name: usermanagement
         # The image tag here is updated automatically by the CI/CD pipeline.
-        image: 188557556629.dkr.ecr.us-west-2.amazonaws.com/usermanagement:51bcfad00e00e576e7fb6661f4bbf110dbd464b0
+        image: 188557556629.dkr.ecr.us-west-2.amazonaws.com/usermanagement:22fc88b209f3309061aa1a18b53bc1e51e453314
         ports:
         - containerPort: 5000
