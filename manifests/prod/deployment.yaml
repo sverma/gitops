@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermanagement
+  labels:
+    app: usermanagement
+    environment: prod
+spec:
+  replicas: 1  # Lower replica count for dev
+  selector:
+    matchLabels:
+      app: usermanagement
+  template:
+    metadata:
+      labels:
+        app: usermanagement
+        environment: prod
+    spec:
+      imagePullSecrets:
+      - name: my-ecr-secret
+      containers:
+      - name: usermanagement
+        # The image tag here is updated automatically by the CI/CD pipeline.
+        image: 188557556629.dkr.ecr.us-west-2.amazonaws.com/usermanagement:a810a12c6ab581941af39f672142591c8f9f7d79
+        ports:
+        - containerPort: 5000

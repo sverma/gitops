@@ -4,7 +4,7 @@ metadata:
   name: usermanagement
   labels:
     app: usermanagement
-    environment: stage
+    environment: prod
 spec:
   type: ClusterIP
   ports:
